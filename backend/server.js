@@ -28,10 +28,13 @@ app.use('/api/feedback', feedbackRoutes); // ✅ lowercase
 
 // ✅ MongoDB
 // mongoose.connect('mongodb://localhost:27017/ev-charging')
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log('MONGO_URI:', process.env.MONGO_URI);
+console.log('MONGO_URI:', process.env.MONGO_URI);
 
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => {
     console.log('MongoDB connected');
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
