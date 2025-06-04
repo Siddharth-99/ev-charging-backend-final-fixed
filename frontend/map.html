@@ -618,7 +618,7 @@ currentMarker = L.marker(currentLocation, {
     document.getElementById('loading').style.display = 'block';
 
     try {
-      const res = await fetch('https://ev-charging-backend-final-fixed.onrender.com');
+      const res = await fetch('https://ev-charging-backend-final-fixed.onrender.com/api/stations');
       const stations = await res.json();
 
       stations.forEach(station => {
